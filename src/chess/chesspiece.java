@@ -1,8 +1,9 @@
 package chess;
 
 import boardgame.piece;
+import boardgame.position;
 
-public class chesspiece extends piece{
+public abstract class chesspiece extends piece{
 
 	private color color;
 
@@ -15,6 +16,9 @@ public class chesspiece extends piece{
 		return color;
 	}
 
-	
+	protected boolean isthereopponentpiece(position position) {
+		chesspiece p = (chesspiece)getBoard().piece(position);
+		return p != null && p.getColor() != color;
+	}
 	
 }

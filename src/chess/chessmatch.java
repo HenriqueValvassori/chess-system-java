@@ -32,12 +32,21 @@ public class chessmatch {
 		position source = sourceposition.toposition();
 		position target = targetposition.toposition();
 		validatesourceposition(source);
+		validatetargetposition(source, target);
 		piece capturedpiece = makemove(source, target); 
 		return (chesspiece)capturedpiece;
 }
 	private void validatesourceposition(position position) {
 		if(!board.thereisapiece(position)) {
 			throw new chessexception("there is no piece on source position");
+		}
+		if(!board.piece(position).isthereanypossiblemove()) {
+			throw new chessexception("there is no possible move for the chosen piece");
+		}
+	}
+	private void validatetargetposition(position source, position target) {
+		if(!board.piece(source).possiblemove(target)) {
+			throw new chessexception("the chosen piece can't move to target position");
 		}
 	}
 	

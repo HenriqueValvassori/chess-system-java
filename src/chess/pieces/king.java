@@ -14,4 +14,8 @@ public class king extends chesspiece{
 	public String toString() {
 		return "k";
 	}
+	public boolean[][] possiblemoves(){
+		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+		return mat;
+	}
 }
