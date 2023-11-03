@@ -66,7 +66,7 @@ public class rook extends chesspiece{
 				
 				return mat;
 		
-		return mat;
+		
 	}
 	
 }
